@@ -27,23 +27,23 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0">File Path :</Label>
             <Button Grid.Row="0"
-                Grid.Column="1"
-                Margin="0,0,10,0"
-                HorizontalAlignment="Right"
-                Click="ButtonBase_OnClick">
+                    Grid.Column="1"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Click="ButtonBase_OnClick">
                 Replace String
             </Button>
             <TextBox Name="TextBoxFilePath"
-                 Grid.Row="1"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="2"
-                 TextWrapping="WrapWithOverflow" />
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Margin="2"
+                     TextWrapping="WrapWithOverflow" />
             <StackPanel Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Margin="2"
-                    Orientation="Horizontal">
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="2"
+                        Orientation="Horizontal">
                 <Label>Xpath</Label>
                 <TextBox Name="TextBoxXpath" MinWidth="100" />
                 <Label Margin="5,0,0,0">Symbol Start</Label>
@@ -53,25 +53,30 @@
             </StackPanel>
             <Label Grid.Row="3" Grid.Column="0">Origin Strings:</Label>
             <TextBox Name="TextBoxOrigin"
-                 Grid.Row="4"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="2" MinHeight="40" AcceptsReturn="True"
-                 TextWrapping="WrapWithOverflow" />
+                     Grid.Row="4"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     MinHeight="40"
+                     Margin="2"
+                     AcceptsReturn="True"
+                     TextWrapping="WrapWithOverflow" />
             <Label Grid.Row="5" Grid.Column="0">Replaced Strings:</Label>
             <TextBox Name="TextBoxReplaced"
-                 Grid.Row="6"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="2" MinHeight="40" AcceptsReturn="True"
-                 TextWrapping="WrapWithOverflow" />
+                     Grid.Row="6"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     MinHeight="40"
+                     Margin="2"
+                     AcceptsReturn="True"
+                     TextWrapping="WrapWithOverflow" />
             <Label Grid.Row="7" Grid.Column="0">MisMatchs:</Label>
             <TextBox Name="TextBoxMisMatchs"
-                 Grid.Row="8"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="2" AcceptsReturn="True"
-                 TextWrapping="WrapWithOverflow" />
+                     Grid.Row="8"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Margin="2"
+                     AcceptsReturn="True"
+                     TextWrapping="WrapWithOverflow" />
         </Grid>
     </ScrollViewer>
 </Window>

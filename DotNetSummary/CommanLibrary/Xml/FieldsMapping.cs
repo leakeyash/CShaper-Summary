@@ -70,22 +70,24 @@ namespace CommanLibrary.Xml
             int tempStart = text.IndexOf(symbolStart, StringComparison.OrdinalIgnoreCase);
             while (tempStart > 0)
             {
-                int tempEnd = text.IndexOf(symbolEnd, tempStart + symbolStart.Length, StringComparison.OrdinalIgnoreCase);
+                int tempEnd = replacedString.IndexOf(symbolEnd, tempStart + symbolStart.Length, StringComparison.OrdinalIgnoreCase);
                 if (tempEnd > 0)
                 {
-                    string mapString = text.Substring(tempStart + symbolStart.Length,
+                    string mapString = replacedString.Substring(tempStart + symbolStart.Length,
                         tempEnd + symbolEnd.Length - tempStart - symbolStart.Length - 1);
-                    string wholeString = text.Substring(tempStart, tempEnd + symbolEnd.Length - tempStart);
+                    string wholeString = replacedString.Substring(tempStart, tempEnd + symbolEnd.Length - tempStart);
                     if (selectedValues.ContainsKey(mapString))
                     {
                         replacedString = replacedString.Replace(wholeString, selectedValues[mapString]);
+                        tempStart = replacedString.IndexOf(symbolStart, tempStart+ selectedValues[mapString].Length,
+                        StringComparison.OrdinalIgnoreCase);
                     }
                     else
                     {
                         unMappingList.Add(wholeString);
-                    }
-                    tempStart = replacedString.IndexOf(symbolStart, tempEnd + symbolEnd.Length,
+                        tempStart = replacedString.IndexOf(symbolStart, tempEnd + symbolEnd.Length,
                         StringComparison.OrdinalIgnoreCase);
+                    }                   
                 }
                 tempStart = replacedString.IndexOf(symbolStart, tempStart + symbolStart.Length,
                     StringComparison.OrdinalIgnoreCase);
