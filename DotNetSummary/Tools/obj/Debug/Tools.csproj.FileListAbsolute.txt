@@ -1,0 +1,16 @@
+E:\CShaper-Summary\DotNetSummary\Tools\bin\Debug\Tools.exe.config
+E:\CShaper-Summary\DotNetSummary\Tools\bin\Debug\Tools.exe
+E:\CShaper-Summary\DotNetSummary\Tools\bin\Debug\Tools.pdb
+E:\CShaper-Summary\DotNetSummary\Tools\bin\Debug\CommanLibrary.dll
+E:\CShaper-Summary\DotNetSummary\Tools\bin\Debug\CommanLibrary.pdb
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.csprojResolveAssemblyReference.cache
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\MainWindow.g.cs
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\App.g.cs
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools_MarkupCompile.cache
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools_MarkupCompile.lref
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\MainWindow.baml
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.g.resources
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.Properties.Resources.resources
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.csproj.GenerateResource.Cache
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.exe
+E:\CShaper-Summary\DotNetSummary\Tools\obj\Debug\Tools.pdb

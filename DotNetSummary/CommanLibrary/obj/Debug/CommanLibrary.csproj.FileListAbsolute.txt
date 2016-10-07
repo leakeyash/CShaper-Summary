@@ -1,0 +1,5 @@
+E:\CShaper-Summary\DotNetSummary\CommanLibrary\bin\Debug\CommanLibrary.dll
+E:\CShaper-Summary\DotNetSummary\CommanLibrary\bin\Debug\CommanLibrary.pdb
+E:\CShaper-Summary\DotNetSummary\CommanLibrary\obj\Debug\CommanLibrary.csprojResolveAssemblyReference.cache
+E:\CShaper-Summary\DotNetSummary\CommanLibrary\obj\Debug\CommanLibrary.dll
+E:\CShaper-Summary\DotNetSummary\CommanLibrary\obj\Debug\CommanLibrary.pdb
