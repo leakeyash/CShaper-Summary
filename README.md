@@ -1,4 +1,3 @@
-# CShaper-Summary
-Basic Summary of C Shaper
+# dotnet-lab
 
-Henry here, I'd like to do some summary work to review the basic c-sharper skills I have learned and used.
+This repo is used for storing some testing code and the code for me to get start with parts of .net.
