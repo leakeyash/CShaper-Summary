@@ -24,5 +24,11 @@ namespace WpfSamples
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WinMail wm = new WinMail();
+            wm.Show();
+        }
     }
 }

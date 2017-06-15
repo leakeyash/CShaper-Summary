@@ -1,0 +1,125 @@
+﻿<Window x:Class="WpfSamples.WinMail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:local="clr-namespace:WpfSamples"
+         Title="Mail Manager" Height="400" Width="650" MaxHeight="650" WindowStartupLocation="CenterScreen" SizeToContent="Height">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
+        <local:ReverseBooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter"/>
+        <local:Helper x:Key="Helper" />
+        <ControlTemplate x:Key="WaterMarkBox" TargetType="local:TextBoxWithMark">
+            <Grid Margin="2">
+                <Label VerticalAlignment="Center" Margin="2,0,0,0" Content="{TemplateBinding WaterMarks}" Foreground="Gray" FontStyle="Italic" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
+                    <!--<Label.Visibility>
+                        <MultiBinding Converter="{StaticResource Helper}">
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text.IsEmpty"/>
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsFocused"/>
+                        </MultiBinding>
+                    </Label.Visibility>-->
+                </Label>
+                <TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" VerticalContentAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonWithText" TargetType="Button">
+            <Border BorderBrush="Gainsboro" BorderThickness="1" Margin="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{TemplateBinding Content}"></TextBlock>
+                    <Image Margin="2,5,2,5" Height="15" Grid.Column="1" Source="Resources/ButtonDelete.png"/>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Style.Setters>
+                <Setter Property="Background" Value="{x:Null}"></Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Azure"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Send Mode" Grid.Row="0"  HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Name="RbAuto" Margin="5" IsChecked="True">Auto</RadioButton>
+                    <RadioButton Name="RbLocal" Margin="5">Local(OutLook)</RadioButton>
+                    <RadioButton Name="RbServer" Margin="5">Server(Smtp Server)</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Header="">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Visibility="{Binding ElementName=RbLocal,Path=IsChecked,Converter={StaticResource ReverseBooleanToVisibilityConverter}}">EmailFrom:</Label>
+                    <local:TextBoxWithMark x:Name="TbEmailFrom" Grid.Row="0" Grid.Column="1" WaterMarks="xxx@imcnam.ssmb.com" Template="{StaticResource WaterMarkBox}" Visibility="{Binding ElementName=RbLocal,Path=IsChecked,Converter={StaticResource ReverseBooleanToVisibilityConverter}}" KeyUp="TextBox_OnKeyUp"/>
+                    <Label Grid.Row="1" Grid.Column="0">EmailTo:</Label>
+                    <local:TextBoxWithMark x:Name="TbEmailTo" Grid.Row="1" Grid.Column="1" WaterMarks="xxx@imcnam.ssmb.com" Template="{StaticResource WaterMarkBox}" KeyUp="TextBox_OnKeyUp"></local:TextBoxWithMark>
+                    <Label Grid.Row="2" Grid.Column="0">Subject:</Label>
+                    <local:TextBoxWithMark x:Name="TbSubject" Grid.Row="2" Grid.Column="1" WaterMarks="TDM Reports" Template="{StaticResource WaterMarkBox}" KeyUp="TextBox_OnKeyUp"></local:TextBoxWithMark>
+                    <Label Grid.Row="3" Grid.Column="0">Cc:</Label>
+                    <local:TextBoxWithMark x:Name="TbCc" Grid.Row="3" Grid.Column="1" WaterMarks="xxx@imcnam.ssmb.com;xxx@imcnam.ssmb.com" Template="{StaticResource WaterMarkBox}" KeyUp="TextBox_OnKeyUp"></local:TextBoxWithMark>
+                    <Label Grid.Row="4" Grid.Column="0">Bcc:</Label>
+                    <local:TextBoxWithMark x:Name="TbBcc" Grid.Row="4" Grid.Column="1" WaterMarks="xxx@imcnam.ssmb.com;xxx@imcnam.ssmb.com" Template="{StaticResource WaterMarkBox}" KeyUp="TextBox_OnKeyUp"></local:TextBoxWithMark>
+                    <Label Grid.Row="5" Grid.Column="0">Message Body:</Label>
+                    <RichTextBox Margin="2" Name="TbMessageBody" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"></RichTextBox>
+                    <Label Grid.Row="7" Grid.Column="0">Attachments</Label>
+                    <WrapPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Name="WrapPanelAttachments"/>
+                    <TextBox Name="TbAttachments" Grid.Row="7" Grid.Column="1">
+                        <TextBox.Template>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border BorderBrush="Gainsboro" BorderThickness="1" Margin="2">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="50"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" BorderBrush="{x:Null}" Text="{TemplateBinding Text}" TextWrapping="WrapWithOverflow"></TextBox>
+                                        <Button Grid.Column="1" BorderBrush="{x:Null}" Content="Select" Style="{StaticResource ButtonStyle}" Click="TbAttachmentsSelect_Click"/>
+                                        <Button Grid.Column="2" BorderBrush="{x:Null}" Content="Add" Style="{StaticResource ButtonStyle}" Click="TbAttachmentsAdd_Click"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </TextBox.Template>
+                    </TextBox>
+                </Grid>
+            </GroupBox>
+            <DockPanel Grid.Row="2" LastChildFill="False">
+                <Button  Margin="5" Width="45" DockPanel.Dock="Right" Style="{StaticResource ButtonStyle}" Click="Cancel_Click">Cancel</Button>
+                <Button  Margin="5" Width="45" DockPanel.Dock="Right" Style="{StaticResource ButtonStyle}" Click="Send_Click">Send</Button>
+            </DockPanel>
+            <Popup x:Name="ConfigPopup" Height="auto" Width="150" StaysOpen="False" Placement="Bottom" IsOpen="False" HorizontalAlignment="Left">
+                <Grid Width="auto" Height="auto">
+                    <ListBox x:Name="MailConfigSelection" KeyDown="MailConfigSelection_OnKeyDown" IsTextSearchEnabled="True" ItemsSource="{Binding KeysCollection}"></ListBox>
+                </Grid>
+            </Popup>
+        </Grid>
+        
+    </ScrollViewer>
+</Window>

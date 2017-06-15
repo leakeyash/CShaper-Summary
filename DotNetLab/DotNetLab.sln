@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommanLibrary", "CommanLibrary\CommanLibrary.csproj", "{F6F5DB9A-C41D-4DCA-8683-FA147FE83F6A}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSamples", "WpfSamples\WpfSamples.csproj", "{401063BB-33DC-4E6A-B154-5DB327461621}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{8F73E1E0-5FF4-42CC-91DE-1590CCB6BE05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET", "ASP.NET", "{4341B311-3D75-43C8-8B18-73D0AD9FAE63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{A3BAB642-2C5B-4DE9-AA51-A685B892E595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F6F5DB9A-C41D-4DCA-8683-FA147FE83F6A} = {A3BAB642-2C5B-4DE9-AA51-A685B892E595}
 		{401063BB-33DC-4E6A-B154-5DB327461621} = {EB80097E-457F-422D-90A9-9665EA7DB097}
 		{8F73E1E0-5FF4-42CC-91DE-1590CCB6BE05} = {EB80097E-457F-422D-90A9-9665EA7DB097}
 	EndGlobalSection
